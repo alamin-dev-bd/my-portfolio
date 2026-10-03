@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap');
+body{
+    font-family: 'Space Grotesk', sans-serif, 'Orbitron';
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+}
+
+
+
+.marquee-section {
+  overflow: hidden;
+  border-top: 1px solid #fed7aa;
+  border-bottom: 1px solid #fed7aa;
+  padding: 20px 0;
+
+  background: linear-gradient(
+    90deg,
+    #fff7ed,
+    #ffedd5,
+    #fff7ed
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+h2,h4{
+    font-family: 'DM Mono', sans-serif ;
+}
+h5{
+    font-family: 'Manrope', sans-serif ;
+}
+p{
+    font-family: 'Sora', sans-serif;
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+.font-orbitron{
+    font-family: 'Orbitron';
+}
+:root {
+  --color-background: #ffffff;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #3f3f46;
+  --color-text-muted: #71717a;
+  --color-text-accent: #0d9488;
+
+  --color-button-primary: #18181b;
+  --color-button-secondary: #e4e4e7;
+}
+.hero-title {
+  color: var(--color-text-primary);
+}
+
+bg-wcolor {
+  background-color: var(--color-background);
+}
+
+
+.hero-description {
+  color: var(--color-text-secondary);
+}
+
+.accent-text {
+  color: var(--color-text-accent);
+}
+
+/* in your CSS / global.css */
+
+.hero-orange {
+  background-color: #ffffff;
+
+  background-image:
+    radial-gradient(
+      circle at 65% 55%,
+      rgba(255, 140, 50, 0.22) 0%,
+      rgba(255, 170, 90, 0.12) 25%,
+      rgba(255, 200, 140, 0.05) 45%,
+      transparent 70%
+    ),
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    auto,
+    60px 60px,
+    60px 60px;
+}
+
+
+.skills-gradient-soft {
+  background: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    #fffaf5 40%,
+    #fff7ed 70%,
+    #ffffff 100%
+  );
+}
+
+.hero-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.about-bg {
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(200, 87, 0, 0.08),
+            transparent 35%
+        );
+}
+.projects-bg {
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0.08) 1px,
+        transparent 1px
+    );
+    background-size: 24px 24px;
+}
+
+.contact-bg {
+    background:
+        radial-gradient(
+            circle at 75% 40%,
+            rgba(220, 147, 0, 0.1),
+            transparent 35%
+        );
+}
+.hero-m-width {
+   max-width: 640px;
+}
