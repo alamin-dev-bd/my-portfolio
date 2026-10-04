@@ -10,18 +10,18 @@ const about = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left side */}
           <div className="lg:col-span-5">
-            <h3 className="text-4xl px-4 sm:text-5xl font-bold text-slate-800 mb-8">
+            <h3 className="text-4xl px-4 sm:text-5xl font-bold text-slate-800 mb-8 dark:text-gray-200">
               About<span className="text-orange-500">Me</span>
             </h3>
             <div className="lg:col-span-5 relative reveal-element floating">
-              <div className="relative rounded-2xl overflow-hidden glass-panel p-2 border border-white/10 group">
+              <div className="relative rounded-2xl overflow-hidden glass-panel p-2 border border-slate-200 dark:border-white/10  group w-fit">
                 {/* Image area */}
                 <div className="relative w-90 h-100 lg:h-115 rounded-xl  overflow-hidden">
 
                   <img
                     src={assets.profileImg}
                     alt="Profile Image Here"
-                    className="w-full h-full object-cover lg:grayscale lg:group-hover:grayscale-0 transition-all duration-700 "
+                    className="w-full h-full object-cover dark:lg:grayscale lg:group-hover:grayscale-0 transition-all duration-700  group-hover:scale-105 "
                   />
 
                   {/* Overlay */}
@@ -48,14 +48,14 @@ const about = () => {
             <span className="font-Sora text-sm font-bold tracking-widest uppercase">
               01. About Me
             </span>
-            <h3 className="text-3xl sm:text-4xl font-bold leading-tight text-slate-800">
-              Driven by Curiosity<span className="text-orange-500">,</span> <br />
+            <h3 className="text-3xl sm:text-4xl font-bold leading-tight text-slate-800 dark:text-orange-500">
+              Driven by Curiosity<span className="text-orange-500 e">,</span> <br />
               <span className="text-gradient-cyan">
                 Obsessed with <span className="text-orange-500">Pixel</span> Perfection.
               </span>
             </h3>
 
-            <p className="text-subtleText leading-relaxed font-Sora">
+            <p className="text-subtleText leading-relaxed font-Sora ">
               I'm a Django & React Full-Stack Developer starting my journey in web development. I focus on writing clean code, building practical projects, and learning modern development practices. I'm excited to contribute to real products and grow with every challenge.
             </p>
 
@@ -69,26 +69,30 @@ const about = () => {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-6 ">
               {
                 profileData.map((data, index) => (
-                  <div key={index} className="w-full h-55 sm:w-50 p-6 border border-zinc-400 bg-white rounded-1xl hover:border-zinc-400 hover:border-b-zinc-800 hover:border-r-zinc-800 hover:border-b-4 hover:border-r-4 cursor-pointer transition duration-300 hover:-translate-y-1 hover:shadow-lg">
+                  <div key={index} className="w-full h-55 sm:w-50 p-6 border border-zinc-400 bg-white project-card-bg rounded-1xl hover:border-zinc-400 hover:border-b-zinc-800 hover:border-r-zinc-800 hover:border-b-4 hover:border-r-4 cursor-pointer transition duration-300 hover:-translate-y-1 hover:shadow-lg">
                     <FaCode className="text-3xl text-orange-400 mb-4" />
-                    <h1 className="text-lg font-semibold text-slate-800 mb-2">{data.title}</h1>
-                    <p className="text-slate-600 text-sm">{data.description.join(', ')}</p>
+                    <h1 className="text-lg font-semibold text-slate-800 mb-2 dark:text-gray-200">{data.title}</h1>
+                    <p className="text-slate-600 text-sm dark:text-gray-200">{data.description.join(', ')}</p>
                   </div>
                 ))
               }
             </div>
             <div>
               <a
-              href="/cv.pdf"
-              download="Alamin_Fullstack_Developer_CV.pdf">
-              <button className='flex gap-2 items-center px-5 py-4 rounded-full bg-slate-800 hover:bg-black border-2 text-white hover:border-orange-500 cursor-pointer hover:translate-x-1 transition-all duration-300'>
-                <p className='font-bold'>Download Resume</p>
-              </button>
-            </a>
+                href="/cv.pdf"
+                download="Alamin_Fullstack_Developer_CV.pdf">
+                <button
+                  data-cursor="view"
+                  data-cursor-label="Download"
+                  data-cursor-label-color="white"
+                  className='flex gap-2 items-center px-5 py-4 rounded-full bg-black hover:bg-slate-950  border-2 text-white hover:border-orange-500 cursor-pointer hover:translate-x-1 transition-all duration-300'>
+                  <p className='font-bold'>Download Resume</p>
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div >
   )
 }

@@ -16,10 +16,10 @@ const Contact = () => {
                                 </div>
                             </div>
 
-                            <h3 className="text-6xl sm:text-8xl md:text-9xl xl:text-[160px] font-bold font-Manrope leading-[0.9] tracking-tight mb-10">
+                            <h3 className="text-6xl sm:text-8xl md:text-9xl xl:text-[160px] font-bold font-Manrope leading-[0.9] tracking-tight mb-10 dark:text-gray-200">
                                 Let's make
                                 <br />
-                                <span className="italic font-[Playfair_Display] text-orange-400">something</span>
+                                <span className="italic font-[Playfair_Display] text-orange-400 dark:text-orange-400">something</span>
                                 <br />
                                 great.
                             </h3>
@@ -31,8 +31,8 @@ const Contact = () => {
                 </div>
 
                 {/* form */}
-                <div className="flex flex-col justify-between gap-12 order-2 group mt-20 ">
-                    <div className="glass-panel p-8 rounded-2xl border border-gray-200 ">
+                <div data-cursor="hide" className="flex flex-col justify-between gap-12 order-2 group mt-20 interactive-bg ">
+                    <div className="glass-panel p-8 rounded-2xl border border-gray-200  ">
                         <form className="space-y-6 ">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
@@ -43,7 +43,7 @@ const Contact = () => {
                                         type="text"
                                         required
                                         placeholder="Full Name"
-                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-zinc-800 focus:outline-none focus:border-orange-500 transition-colors"
+                                        className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-zinc-900 focus:outline-none focus:border-orange-500 transition-colors"
                                     />
                                 </div>
                                 <div>
@@ -85,7 +85,7 @@ const Contact = () => {
 
                             <button
                                 type="submit"
-                                className="w-full py-4 rounded-xl bg-zinc-900 text-white font-medium text-sm hover:bg-orange-500 transition-all duration-300 flex items-center justify-center gap-2"
+                                className="w-full py-4 rounded-xl bg-zinc-900 text-white font-medium text-sm hover:bg-orange-500 transition-all duration-300 flex items-center justify-center gap-2 orange-gradient-bg dark:hover:-translate-y-1"
                             >
                                 <span>Send Message</span>
                                 <span>↗</span>
@@ -95,7 +95,8 @@ const Contact = () => {
 
                 </div>
             </div>
-            <a
+            <a data-cursor="view"
+                data-cursor-label="Click"
                 href=" alamin.dev44@gmail.com"
                 className="group hidden md:inline-flex items-center text-xl border-b hover:text-orange-500 border-zinc-400 pb-2 hover:border-orange-500 transition-colors group-hover:translate-x-1 group-hover:-translate-y-1 duration-300 mt-2 "
             >

@@ -1,12 +1,36 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Manrope:wght@200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,500;1,600&display=swap');
-body{
-    font-family: 'Space Grotesk', sans-serif, 'Orbitron';
-    background-color: var(--color-background);
-    color: var(--color-text-primary);
+
+:root {
+  --color-background: #ffffff;
+  --color-text-primary: #18181b;
+  /* zinc-900 */
+}
+
+html.dark {
+  --color-background: #09090b;
+  /* zinc-950 */
+  --color-text-primary: #f4f4f5;
+  /* zinc-100 */
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif, 'Orbitron';
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
@@ -17,40 +41,50 @@ body{
   border-bottom: 1px solid #fed7aa;
   padding: 20px 0;
 
-  background: linear-gradient(
-    90deg,
-    #fff7ed,
-    #ffedd5,
-    #fff7ed
-  );
+  background: linear-gradient(90deg,
+      #fff7ed,
+      #ffedd5,
+      #fff7ed);
 }
 
-.marquee-track {
+.animate-marquee {
   display: flex;
   width: max-content;
   animation: marquee 26s linear infinite;
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 
 .marquee-track:hover .animate-marquee {
   animation-play-state: paused;
 }
-h2,h4{
-    font-family: 'DM Mono', sans-serif ;
+
+h2,
+h4 {
+  font-family: 'DM Mono', sans-serif;
 }
-h5{
-    font-family: 'Manrope', sans-serif ;
+
+h5 {
+  font-family: 'Manrope', sans-serif;
 }
-p{
-    font-family: 'Sora', sans-serif;
+
+p {
+  font-family: 'Sora', sans-serif;
 }
+
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
 
@@ -62,9 +96,11 @@ p{
 .floating {
   animation: float 6s ease-in-out infinite;
 }
-.font-orbitron{
-    font-family: 'Orbitron';
+
+.font-orbitron {
+  font-family: 'Orbitron';
 }
+
 :root {
   --color-background: #ffffff;
 
@@ -73,9 +109,23 @@ p{
   --color-text-muted: #71717a;
   --color-text-accent: #0d9488;
 
-  --color-button-primary: #18181b;
-  --color-button-secondary: #e4e4e7;
+  --acc: #FB923C;
+  --fg: #1a1a1a;
+  --e-out: cubic-bezier(.22, 1, .36, 1);
+  --fz-mono: "Space Grotesk", ui-sans-serif, sans-serif;
 }
+
+body.has-cursor,
+body.has-cursor * {
+  cursor: none !important;
+}
+
+
+html.dark {
+  --fg: #ffffff;
+  --acc: #ff7a00;
+}
+
 .hero-title {
   color: var(--color-text-primary);
 }
@@ -99,23 +149,17 @@ bg-wcolor {
   background-color: #ffffff;
 
   background-image:
-    radial-gradient(
-      circle at 65% 55%,
+    radial-gradient(circle at 65% 55%,
       rgba(255, 140, 50, 0.22) 0%,
       rgba(255, 170, 90, 0.12) 25%,
       rgba(255, 200, 140, 0.05) 45%,
-      transparent 70%
-    ),
-    linear-gradient(
-      to right,
+      transparent 70%),
+    linear-gradient(to right,
       rgba(0, 0, 0, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
+      transparent 1px),
+    linear-gradient(to bottom,
       rgba(0, 0, 0, 0.025) 1px,
-      transparent 1px
-    );
+      transparent 1px);
 
   background-size:
     auto,
@@ -124,46 +168,512 @@ bg-wcolor {
 }
 
 
+
 .skills-gradient-soft {
-  background: linear-gradient(
-    160deg,
-    #ffffff 0%,
-    #fffaf5 40%,
-    #fff7ed 70%,
-    #ffffff 100%
-  );
+  background: linear-gradient(160deg,
+      #ffffff 0%,
+      #fffaf5 40%,
+      #fff7ed 70%,
+      #ffffff 100%);
 }
 
 .hero-grid {
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
+
 .about-bg {
-    background:
-        radial-gradient(
-            circle at 80% 20%,
-            rgba(200, 87, 0, 0.08),
-            transparent 35%
-        );
+  background:
+    radial-gradient(circle at 80% 20%,
+      rgba(200, 87, 0, 0.08),
+      transparent 35%);
 }
+
 .projects-bg {
-    background-image: radial-gradient(
-        rgba(0, 0, 0, 0.08) 1px,
-        transparent 1px
-    );
-    background-size: 24px 24px;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px,
+      transparent 1px);
+  background-size: 24px 24px;
 }
 
 .contact-bg {
-    background:
-        radial-gradient(
-            circle at 75% 40%,
-            rgba(220, 147, 0, 0.1),
-            transparent 35%
-        );
+  background:
+    radial-gradient(circle at 75% 40%,
+      rgba(220, 147, 0, 0.1),
+      transparent 35%);
 }
-.hero-m-width {
-   max-width: 640px;
+
+/* =========================================================
+   DARK THEME — PORTFOLIO SECTION BACKGROUNDS
+   ========================================================= */
+
+:root {
+  --dark-black: #08090b;
+  --dark-black-2: #0c0d0f;
+
+  --dark-card: #101113;
+  --dark-card-2: #121315;
+
+  --dark-orange: #ff7a00;
+  --dark-orange-light: #ff9d3d;
+  --dark-orange-soft: rgba(255, 122, 0, 0.12);
+
+  --dark-border: rgba(255, 255, 255, 0.08);
+}
+
+
+
+html.dark .about-bg {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 122, 0, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 122, 0, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+}
+
+
+
+
+/* =========================================================
+   SKILLS
+   Deep black + very subtle orange gradient
+   ========================================================= */
+
+html.dark .skills-gradient-soft {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 122, 0, 0.07),
+      transparent 35%
+    ),
+    linear-gradient(
+      160deg,
+      #08090b 0%,
+      #0c0d0f 45%,
+      #090a0c 100%
+    );
+}
+
+
+/* =========================================================
+   MARQUEE
+   Dark orange gradient
+   ========================================================= */
+
+html.dark .marquee-section {
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(255, 122, 0, 0.30),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 94, 0, 0.14),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #0b0908 0%,
+      #241108 50%,
+      #321507 100%
+    );
+}
+
+
+/* =========================================================
+   PROJECTS
+   Black + orange dot pattern
+   ========================================================= */
+
+html.dark .projects-bg {
+  background-color: #08090b;
+
+  background-image:
+    radial-gradient(
+      rgba(255, 122, 0, 0.13) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+}
+
+
+/* =========================================================
+   PROJECT CARD BACKGROUND
+   ========================================================= */
+
+html.dark .project-card-bg {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   SERVICES
+   Very dark + diagonal orange pattern
+   ========================================================= */
+
+html.dark .services-bg {
+  background-color: #090a0c;
+
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(255, 122, 0, 0.025) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      315deg,
+      rgba(255, 122, 0, 0.018) 25%,
+      transparent 25%
+    );
+
+  background-size: 70px 70px;
+}
+
+
+/* =========================================================
+   INTERACTIVE / PARTICLE SECTION
+   Dark radial orange atmosphere
+   ========================================================= */
+
+html.dark .interactive-bg {
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(255, 122, 0, 0.08),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 122, 0, 0.035),
+      transparent 25%
+    ),
+    #070809;
+}
+
+
+/* =========================================================
+   CONTACT
+   Strongest orange glow
+   ========================================================= */
+
+html.dark .contact-bg {
+  position: relative;
+  overflow: hidden;
+
+  background-color: #08090b;
+
+  background-image:
+    radial-gradient(
+      circle at 75% 35%,
+      rgba(255, 122, 0, 0.16),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      rgba(255, 122, 0, 0.08),
+      transparent 30%
+    );
+}
+
+
+/* =========================================================
+   CONTACT — ORANGE AMBIENT GRADIENT
+   ========================================================= */
+
+html.dark .contact-orange-bg {
+  background:
+    radial-gradient(
+      circle at 20% 60%,
+      rgba(255, 122, 0, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 25%,
+      rgba(255, 122, 0, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #08090b 0%,
+      #120b07 50%,
+      #08090b 100%
+    );
+}
+
+
+/* =========================================================
+   FOOTER
+   Almost black with orange top glow
+   ========================================================= */
+
+html.dark .footer-bg {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 122, 0, 0.035),
+      transparent 35%
+    ),
+    #070809;
+}
+
+
+/* =========================================================
+   DARK CARD SURFACE
+   ========================================================= */
+
+html.dark .dark-card {
+  background:
+    linear-gradient(
+      145deg,
+      #111214 0%,
+      #0d0e10 100%
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   ORANGE GRADIENT
+   Useful for buttons / highlights
+   ========================================================= */
+
+html.dark .orange-gradient-bg {
+  background:
+    linear-gradient(
+      135deg,
+      #c65300 0%,
+      #ff7a00 45%,
+      #ff9d3d 100%
+    );
+}
+
+
+/* =========================================================
+   ORANGE SOFT GRADIENT
+   ========================================================= */
+
+html.dark .orange-gradient-soft {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 122, 0, 0.16),
+      rgba(255, 122, 0, 0.04),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   ORANGE GLOW
+   ========================================================= */
+
+html.dark .orange-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 122, 0, 0.18),
+      transparent 65%
+    );
+}
+
+
+/* =========================================================
+   SUBTLE SECTION DIVIDER
+   ========================================================= */
+
+html.dark .section-divider {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 122, 0, 0.18),
+      rgba(255, 255, 255, 0.07),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   ORANGE DOT FIELD
+   ========================================================= */
+
+html.dark .orange-dot-pattern {
+  background-color: #08090b;
+
+  background-image:
+    radial-gradient(
+      rgba(255, 122, 0, 0.15) 1px,
+      transparent 1px
+    );
+
+  background-size: 26px 26px;
+}
+
+
+/* =========================================================
+   ANIMATED ORANGE GRADIENT
+   Use only for one major section
+   ========================================================= */
+
+html.dark .orange-animated-bg {
+  background:
+    linear-gradient(
+      120deg,
+      #08090b,
+      #1a0c05,
+      #3b1605,
+      #7a2c00,
+      #2a1106,
+      #08090b
+    );
+
+  background-size: 300% 300%;
+
+  animation: orangeGradientMove 14s ease infinite;
+}
+
+
+@keyframes orangeGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html.dark .orange-animated-bg {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+/* =========================================================
+   HERO DARK BACKGROUND  ·  paste into index.css
+   (replaces the earlier `.dark .bg-hero` rule)
+   ========================================================= */
+
+/* base: plain near-black, the component draws everything else */
+.dark .bg-hero {
+  background-color: #09090b;
+  background-image: none;
+}
+
+/* ---------- blurred color blobs ---------- */
+.hero-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(110px);
+  will-change: transform;
+}
+
+/* big orange glow, left (like the green one in your reference) */
+.hero-blob-orange {
+  width: 640px;
+  height: 640px;
+  left: -180px;
+  top: 18%;
+  background: radial-gradient(circle, rgba(255, 106, 0, 0.55), transparent 70%);
+  animation: blobFloatA 22s ease-in-out infinite alternate;
+}
+
+/* burnt red, right */
+.hero-blob-red {
+  width: 560px;
+  height: 560px;
+  right: -160px;
+  top: 38%;
+  background: radial-gradient(circle, rgba(190, 40, 20, 0.45), transparent 70%);
+  animation: blobFloatB 26s ease-in-out infinite alternate;
+}
+
+/* deep amber, bottom centre (replaces the blue one) */
+.hero-blob-amber {
+  width: 520px;
+  height: 520px;
+  left: 42%;
+  bottom: -240px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.32), transparent 70%);
+  animation: blobFloatA 30s ease-in-out infinite alternate-reverse;
+}
+
+/* ---------- faded grid ---------- */
+.hero-grid-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 110px 110px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+}
+
+/* ---------- cursor-following glow ---------- */
+.hero-cursor-glow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 520px;   /* keep in sync with SIZE in HeroBackground.jsx */
+  height: 520px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 130, 30, 0.38) 0%,
+    rgba(255, 106, 0, 0.14) 40%,
+    transparent 70%
+  );
+  filter: blur(30px);
+  mix-blend-mode: screen;
+  will-change: transform;
+  transform: translate3d(60vw, 20vh, 0); /* resting spot on touch screens */
+}
+
+/* ---------- animations ---------- */
+@keyframes blobFloatA {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(60px, -40px, 0) scale(1.12); }
+}
+@keyframes blobFloatB {
+  from { transform: translate3d(0, 0, 0) scale(1.05); }
+  to   { transform: translate3d(-50px, 50px, 0) scale(0.95); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob { animation: none; }
 }
